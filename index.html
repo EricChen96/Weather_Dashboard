@@ -22,30 +22,85 @@
         </div>
     </nav>
 
-
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                </div>
+            <div class="col-md-4">
                 <div class="card-body">
-                    <h2 class="text-center card-title">New York Times Search</h2>
-                </div>
-            </div>
-        </div>
-        <form id="main-form">
-            <div class="row">
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Search Term</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput"
-                            placeholder="Example input placeholder">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control cities-search-input"
+                                    placeholder="Example input placeholder">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="cities-buttons-holder">
+                            <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">New
+                                York</button>
+                            <button type="button"
+                                class="btn btn-primary col-12 mx-auto mt-2 cities-button">Sydney</button>
+                            <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">Los
+                                Angeles</button>
+                            <button type="button"
+                                class="btn btn-primary col-12 mx-auto mt-2 cities-button">Toronto</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="card-body">
+                        <div class="card-title cities-name-date">CITIES NAME + DATE</div>
+                        <div>Temperature: <span class="main-temperature">Degrees</span></div>
+                        <div>Humidity: <span class="main-humidity">%</span></div>
+                        <div>Wind Speed: <span class="main-windspeed">MPH</span></div>
+                        <div>UV Index: <span class="main-UV-Index">___________</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body">
+                        <h2 class="five-day-forcast-title">5-Day Forcast</h2>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div>Day One</div>
+                                <div>Day One</div>
+                                <div>Day One</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div>Day Two</div>
+                                <div>Day Two</div>
+                                <div>Day Two</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div>Day Three</div>
+                                <div>Day Three</div>
+                                <div>Day Three</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div>Day Four</div>
+                                <div>Day Four</div>
+                                <div>Day Four</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div>Day Five</div>
+                                <div>Day Five</div>
+                                <div>Day Five</div>
+                            </div>
+                        </div>
 
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
     </div>
     <div class="container" id="articlesContainer"></div>
 
@@ -55,14 +110,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
-
-
-
-
-
-
-Send a message to Anzel Capparelli, Timothy Smith
