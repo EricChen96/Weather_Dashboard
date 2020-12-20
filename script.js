@@ -1,5 +1,7 @@
 $(function () {
     var apiKey = "9533f3cb4c01176c409c57b70db75f3f";
+    var todayDate = moment().format("MMM Do YYYY")
+    var cityLatitude, cityLongitude;
 
     $(".cities-search-form").on("submit", function (event) {
         event.preventDefault();
@@ -21,7 +23,23 @@ $(function () {
             url: queryUrl,
             method: "GET",
         }).then(function (data) {
-            // log the data from the api to the console
-            console.log(data);
+            $(".cities-name-date").text(data.name + " (" + todayDate + ") ");
+            $(".main-temperature").text(data.main.temp + "°");
+            $(".main-humidity").text(data.main.humidity + "%");
+            $(".main-windspeed").text(data.wind.speed + " MPH");
+            cityLongitude = data.coord.lon;
+            cityLatitude = data.coord.lat;
+            searchCityIVIndex(cityLongitude, cityLatitude);
         });
+    };
+
+    function searchCityIVIndex(cityLongitude, cityLatitude) {
+        var IVIndexQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLatitude + "&lon=" + cityLongitude + "&appid=" + apiKey;
+        $.ajax({
+            url: IVIndexQueryUrl,
+            method: "GET",
+        }).then(function (dataTwo) {
+            $(".main-UV-Index").text(dataTwo.value);
+        });
+    }
 });
