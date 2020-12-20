@@ -16,14 +16,29 @@ $(function () {
         else {
             // citiesButtons.push(data.name);
             searchCityWeather(searchRequest);
+            searchFiveDayForcast(searchRequest);
             $(".cities-search-input").val("");
         }
-
     });
 
     $(".cities-buttons-holder").on("click", ".cities-button", function () {
         searchCityWeather($(this).attr("cityName"));
+        searchFiveDayForcast($(this).attr("cityName"));
     });
+
+    function searchFiveDayForcast(city) {
+        var queryUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city+ "&appid=" + apiKey;
+        $.ajax({
+            url: queryUrl,
+            method: "GET",
+        }).then(function (data) {
+            console.log(data);
+            for (var dateCount = 0; dateCount < 5; dateCount++) {
+                $(".date-forcast-" + dateCount).text(data.list[dateCount*8].dt_txt.substring(0,10));
+            }
+
+        });
+    }
 
     function createButtons() {
         $(".cities-buttons-holder").empty();
