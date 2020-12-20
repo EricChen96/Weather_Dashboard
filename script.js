@@ -16,10 +16,13 @@ $(function () {
         else {
             // citiesButtons.push(data.name);
             searchCityWeather(searchRequest);
-            createButtons();
             $(".cities-search-input").val("");
         }
 
+    });
+
+    $(".cities-buttons-holder").on("click", ".cities-button", function () {
+        searchCityWeather($(this).attr("cityName"));
     });
 
     function createButtons() {
@@ -27,6 +30,7 @@ $(function () {
         for (var citiesCount = 0; citiesCount < citiesButtons.length; citiesCount++) {
             var cityButton = $("<button>").attr("class", "btn btn-primary col-12 mx-auto mt-2 cities-button").text(citiesButtons[citiesCount]);
             $(".cities-buttons-holder").append(cityButton);
+            cityButton.attr("cityName", citiesButtons[citiesCount]);
         }
     }
 
@@ -43,11 +47,12 @@ $(function () {
             $(".main-windspeed").text(data.wind.speed + " MPH");
             cityLongitude = data.coord.lon;
             cityLatitude = data.coord.lat;
-            citiesButtons.push(data.name);
             searchCityIVIndex(cityLongitude, cityLatitude);
-            createButtons();
+            if (!citiesButtons.includes(data.name)) {
+                citiesButtons.push(data.name);
+                createButtons();
+            }
         });
-        
     };
 
     function searchCityIVIndex(cityLongitude, cityLatitude) {
