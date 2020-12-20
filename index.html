@@ -24,33 +24,27 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Search Term</label>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <input type="text" class="form-control cities-search-input"
-                                    placeholder="Example input placeholder">
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
-                        </div>
-
-                        <div class="cities-buttons-holder">
-                            <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">New
-                                York</button>
-                            <button type="button"
-                                class="btn btn-primary col-12 mx-auto mt-2 cities-button">Sydney</button>
-                            <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">Los
-                                Angeles</button>
-                            <button type="button"
-                                class="btn btn-primary col-12 mx-auto mt-2 cities-button">Toronto</button>
-                        </div>
+            <form class="col-md-4 form-group cities-search-form">
+                <label for="cities-search-input">Search Term</label>
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control cities-search-input"
+                            placeholder="Example input placeholder">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
-            </div>
+
+                <div class="cities-buttons-holder">
+                    <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">New
+                        York</button>
+                    <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">Sydney</button>
+                    <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">Los
+                        Angeles</button>
+                    <button type="button" class="btn btn-primary col-12 mx-auto mt-2 cities-button">Toronto</button>
+                </div>
+            </form>
             <div class="col-md-8">
                 <div class="row">
                     <div class="card-body">
@@ -91,16 +85,10 @@
                                 <div>Day Five</div>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-
     </div>
     <div class="container" id="articlesContainer"></div>
 
@@ -109,8 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 </body>
 
 </html>
