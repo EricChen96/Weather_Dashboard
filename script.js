@@ -3,7 +3,7 @@ $(function () {
     var todayDate = moment().format("MMM Do YYYY")
     var cityLatitude, cityLongitude;
     var citiesButtons = [];
-
+    var lastSearched;
     init();
 
     $(".cities-search-form").on("submit", function (event) {
@@ -34,7 +34,7 @@ $(function () {
             console.log(data);
             for (var dateCount = 0; dateCount < 5; dateCount++) {
                 $(".date-forcast-" + dateCount).text(data.list[dateCount * 8].dt_txt.substring(0, 10));
-                var iconUrl = "http://openweathermap.org/img/wn/" + data.list[dateCount * 8].weather[0].icon + "@2x.png";
+                var iconUrl = "http://openweathermap.org/img/wn/" + data.list[dateCount * 8].weather[0].icon + ".png";
                 $(".icon-forcast-" + dateCount).attr("src", iconUrl);
                 $(".temperature-forcast-" + dateCount).text(data.list[dateCount * 8].main.temp + "°");
                 $(".humidity-forcast-" + dateCount).text(data.list[dateCount * 8].main.humidity + "%");
@@ -59,7 +59,7 @@ $(function () {
             url: queryUrl,
             method: "GET",
         }).then(function (data) {
-            $(".cities-name-date").text(data.name + " (" + todayDate + ") ");
+            $(".main-city-name-date").text(data.name + " (" + todayDate + ") ");
             var iconUrl = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
             $(".main-icon").attr("src", iconUrl)
             $(".main-temperature").text(data.main.temp + "°");
@@ -69,10 +69,12 @@ $(function () {
             cityLatitude = data.coord.lat;
             searchCityIVIndex(cityLongitude, cityLatitude);
             if (!citiesButtons.includes(data.name)) {
-                citiesButtons.push(data.name);
+                citiesButtons.unshift(data.name);
                 createButtons();
                 localStorage.setItem("cities", JSON.stringify(citiesButtons));
             }
+            lastSearched = data.name;
+            localStorage.setItem("lastSearched", lastSearched);
         })
     }
 
@@ -82,6 +84,10 @@ $(function () {
             citiesButtons = storedCitiesButtons;
         }
         createButtons();
+        lastSearched = localStorage.getItem("lastSearched");
+        searchCityWeather(lastSearched);
+        searchFiveDayForcast(lastSearched);
+
     }
 
     function searchCityIVIndex(cityLongitude, cityLatitude) {

@@ -1,3 +1,22 @@
 .navbar-brand {
     margin:auto; 
 }
+
+.main-city-name-date {
+    font-size: 45px;
+    float: left;
+}
+
+.main-icon {
+    height: 75px;
+}
+
+.main-display {
+    font-size: 20px;
+}
+
+.main-UV-Index {
+    background-color: red;
+    /* padding: 5px;
+    margin: auto; */
+}
