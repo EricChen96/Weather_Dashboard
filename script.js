@@ -67,7 +67,7 @@ $(function () {
             $(".main-windspeed").text(data.wind.speed + " MPH");
             cityLongitude = data.coord.lon;
             cityLatitude = data.coord.lat;
-            searchCityIVIndex(cityLongitude, cityLatitude);
+            searchCityUVIndex(cityLongitude, cityLatitude);
             if (!citiesButtons.includes(data.name)) {
                 citiesButtons.unshift(data.name);
                 createButtons();
@@ -90,13 +90,29 @@ $(function () {
 
     }
 
-    function searchCityIVIndex(cityLongitude, cityLatitude) {
+    function searchCityUVIndex(cityLongitude, cityLatitude) {
         var IVIndexQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLatitude + "&lon=" + cityLongitude + "&units=imperial&appid=" + apiKey;
         $.ajax({
             url: IVIndexQueryUrl,
             method: "GET",
         }).then(function (dataTwo) {
-            $(".main-UV-Index").text(dataTwo.value);
+            var UVIndex = parseInt(dataTwo.value);
+            $(".main-UV-Index").text(UVIndex);
+            if(UVIndex>= 11) {
+                $(".main-UV-Index").css("background-color","purple");
+            }
+            else if (UVIndex >= 8) {
+                $(".main-UV-Index").css("background-color","red");
+            }
+            else if (UVIndex >= 6) {
+                $(".main-UV-Index").css("background-color","orange");
+            }
+            else if (UVIndex >= 3) {
+                $(".main-UV-Index").css("background-color","yellow");
+            }
+            else if (UVIndex >= 0) {
+                $(".main-UV-Index").css("background-color","green");
+            }
         })
     }
 });
