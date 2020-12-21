@@ -16,8 +16,6 @@
 }
 
 .main-UV-Index {
-    /* padding: 5px;
-    margin: auto; */
     margin: 20px;
 }
 
@@ -26,4 +24,13 @@
 }
 .forcast-container {
     margin:auto;
+    padding: 10px;
+    background-color: rgb(9, 149, 230);
+    font-weight: bold;
+    border-radius: 25px;
+    color: white;
+}
+
+.cities-search-form {
+    background-color: rgb(238, 232, 232);
 }
