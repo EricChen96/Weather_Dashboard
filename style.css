@@ -16,16 +16,14 @@
 }
 
 .main-UV-Index {
-    /* 0-2: Low */
-    background-color: green;
-    /* 3-5: Moderate */
-    background-color: yellow;
-    /* 6-7: High */
-    background-color: orange;
-    /* 8-10: Very high */
-    background-color: rgb(255, 0, 0); 
-    /* 11 or more: Extreme */
-    background-color: purple;
     /* padding: 5px;
     margin: auto; */
+    margin: 20px;
+}
+
+.five-day-forcast-body {
+    font-size: 12px;
+}
+.forcast-container {
+    margin:auto;
 }

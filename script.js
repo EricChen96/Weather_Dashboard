@@ -36,8 +36,8 @@ $(function () {
                 $(".date-forcast-" + dateCount).text(data.list[dateCount * 8].dt_txt.substring(0, 10));
                 var iconUrl = "http://openweathermap.org/img/wn/" + data.list[dateCount * 8].weather[0].icon + ".png";
                 $(".icon-forcast-" + dateCount).attr("src", iconUrl);
-                $(".temperature-forcast-" + dateCount).text(data.list[dateCount * 8].main.temp + "°");
-                $(".humidity-forcast-" + dateCount).text(data.list[dateCount * 8].main.humidity + "%");
+                $(".temperature-forcast-" + dateCount).text("Temp: "+data.list[dateCount * 8].main.temp + "°");
+                $(".humidity-forcast-" + dateCount).text("Humidity: "+data.list[dateCount * 8].main.humidity + "%");
             }
 
         })
