@@ -37,7 +37,7 @@ $(function () {
         }).then(function (data) {
             for (var dateCount = 0; dateCount < 5; dateCount++) {
                 $(".date-forcast-" + dateCount).text(data.list[dateCount * 8].dt_txt.substring(0, 10));
-                var iconUrl = "http://openweathermap.org/img/wn/" + data.list[dateCount * 8].weather[0].icon + ".png";
+                var iconUrl = "https://openweathermap.org/img/wn/" + data.list[dateCount * 8].weather[0].icon + ".png";
                 $(".icon-forcast-" + dateCount).attr("src", iconUrl);
                 $(".temperature-forcast-" + dateCount).text("Temp: "+data.list[dateCount * 8].main.temp + "°");
                 $(".humidity-forcast-" + dateCount).text("Humidity: "+data.list[dateCount * 8].main.humidity + "%");
@@ -66,7 +66,7 @@ $(function () {
         }).then(function (data) {
             var todayDate = new Date(data.dt * 1000).toLocaleDateString("en-US");
             $(".main-city-name-date").text(data.name + " (" + todayDate + ") ");
-            var iconUrl = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+            var iconUrl = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
             $(".main-icon").attr("src", iconUrl)
             $(".main-temperature").text(data.main.temp + "°");
             $(".main-humidity").text(data.main.humidity + "%");
@@ -99,7 +99,7 @@ $(function () {
 
     //Finds UV index and assigns color based on severity
     function searchCityUVIndex(cityLongitude, cityLatitude) {
-        var IVIndexQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLatitude + "&lon=" + cityLongitude + "&units=imperial&appid=" + apiKey;
+        var IVIndexQueryUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + cityLatitude + "&lon=" + cityLongitude + "&units=imperial&appid=" + apiKey;
         $.ajax({
             url: IVIndexQueryUrl,
             method: "GET",
