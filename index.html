@@ -10,12 +10,11 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Weather Dashboard</title>
-    <style>
 
-    </style>
 </head>
 
 <body>
+    <!-- Header  -->
     <nav class="navbar navbar-dark bg-dark ">
         <div class="container-fluid">
             <a class="navbar-brand " href="./index.html">Weather Dashboard</a>
@@ -24,6 +23,7 @@
 
     <div class="container">
         <div class="row">
+            <!-- Search form -->
             <form class="col-md-4 form-group cities-search-form">
                 <label for="cities-search-input">Search Term</label>
                 <div class="row">
@@ -34,9 +34,11 @@
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
+                <!-- Holds the buttons -->
                 <div class="cities-buttons-holder"> </div>
             </form>
             <div class="col-md-8">
+                <!-- Main current day weather display -->
                 <div class="row">
                     <div class="card-body">
                         <div class="main-city-name-date"></div>
@@ -48,6 +50,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 5 day forcast  -->
                 <div class="row">
                     <div class="card-body">
                         <h2 class="five-day-forcast-title">5-Day Forcast</h2>
@@ -97,7 +100,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 

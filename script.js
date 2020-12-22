@@ -1,10 +1,13 @@
 $(function () {
+    //openweather API key
     var apiKey = "9533f3cb4c01176c409c57b70db75f3f";
     var cityLatitude, cityLongitude;
     var citiesButtons = [];
     var lastSearched;
+
     init();
 
+    //submit button actionlistener. Searches up the city and displays forcast. Resets search value back to ""
     $(".cities-search-form").on("submit", function (event) {
         event.preventDefault();
 
@@ -19,11 +22,13 @@ $(function () {
         }
     })
 
+    //city button actionlistener. Calls the main forcast and the 5 day forcast
     $(".cities-buttons-holder").on("click", ".cities-button", function () {
         searchCityWeather($(this).attr("cityName"));
         searchFiveDayForcast($(this).attr("cityName"));
     })
 
+    //Goes to openweather API and accesses data
     function searchFiveDayForcast(city) {
         var queryUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
         $.ajax({
@@ -41,6 +46,7 @@ $(function () {
         })
     }
 
+    //creates the buttons with saved cities
     function createButtons() {
         $(".cities-buttons-holder").empty();
         for (var citiesCount = 0; citiesCount < citiesButtons.length; citiesCount++) {
@@ -50,6 +56,7 @@ $(function () {
         }
     }
 
+    //Searches up the city for its climate data. Changes main elements and also performs the UV Index search request
     function searchCityWeather(city) {
         var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid="
             + apiKey;
@@ -77,6 +84,7 @@ $(function () {
         })
     }
 
+    //Init on start. Retreives searched cities and last city searched from local storage
     function init() {
         var storedCitiesButtons = JSON.parse(localStorage.getItem("cities"));
         if (storedCitiesButtons !== null) {
@@ -89,6 +97,7 @@ $(function () {
 
     }
 
+    //Finds UV index and assigns color based on severity
     function searchCityUVIndex(cityLongitude, cityLatitude) {
         var IVIndexQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLatitude + "&lon=" + cityLongitude + "&units=imperial&appid=" + apiKey;
         $.ajax({
