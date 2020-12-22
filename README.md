@@ -11,7 +11,7 @@ Go to Github and download
 
 ## Description
 
-The following code quiz would create a weather dashboard that shows the current weather and 5 day forcast for a city.
+The following code would create a weather dashboard that shows the current weather and 5 day forcast for a city.
 
 It'll save the user's searched cities and create buttons with their searched cities. It'll also record their last searched city and display it even if the user reloads the page.
 
